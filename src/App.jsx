@@ -13,8 +13,6 @@ function App() {
       <MyNavBar />
 
       <MyJumbotron />
-      {/* <AllTheBooks /> */}
-      {/* <SingleBook HorrorBook={books[0]} /> */}
       <BookList HorrorBooks={books} />
       <MyFooter />
     </div>

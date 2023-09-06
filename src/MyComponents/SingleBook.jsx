@@ -5,21 +5,24 @@ class SingleBook extends Component {
   state = {
     selected: false,
   };
-  //   selectABook = () => {
-  //     if (this.state === false) {
-  //       this.setState({ selected: true });
-  //       if (this.state === true) {
-  //         const card = document.getElementsByClassName("card");
-  //         console.log(card);
-  //         card.classList.add("borderRed");
-  //       }
-  //     }
-  //   };
+  selectABook = () => {
+    if (this.state.selected === false) {
+      this.setState({ selected: true });
+      const card = document.getElementById(this.props.HorrorBook.asin);
+      console.log(card);
+      card.classList.add("borderRed");
+    } else {
+      this.setState({ selected: false });
+      const card = document.getElementById(this.props.HorrorBook.asin);
+      console.log(card);
+      card.classList.remove("borderRed");
+    }
+  };
 
   render() {
     return (
       <Col xs={3} className="mb-5" key={`book-${this.props.HorrorBook.title}`}>
-        <Card className="card" style={{ minHeight: "550px" }}>
+        <Card id={this.props.HorrorBook.asin} style={{ minHeight: "550px" }}>
           <Card.Img
             variant="top"
             src={this.props.HorrorBook.img}
@@ -28,7 +31,6 @@ class SingleBook extends Component {
           />
           <Card.Body>
             <Card.Title>{this.props.HorrorBook.title}</Card.Title>
-            <Button variant="primary">Add to Cart</Button>
           </Card.Body>
         </Card>
       </Col>
